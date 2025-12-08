@@ -29,7 +29,7 @@ const Trailer = () => {
         src={trailerVideo}
         autoPlay
         loop        // ripete all'infinito
-        muted       // per evitare blocco autoplay nei browser
+        controls       // per evitare blocco autoplay nei browser
       />
     </div>
   );

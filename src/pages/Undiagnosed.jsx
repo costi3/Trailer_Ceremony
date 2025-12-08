@@ -14,8 +14,8 @@ const Undiagnosed = () => {
 
   return (
     <div className="screen screen-dark">
-      <div className="content result-layout">
-        <div className="result-photo-wrapper">
+      <div className="result-card">
+        <div className="result-card tier-4">
           {photo ? (
             <img src={photo} alt="snapshot" className="result-photo" />
           ) : (
@@ -23,12 +23,12 @@ const Undiagnosed = () => {
           )}
         </div>
 
-        <div className="result-info tier-4">
+        <div className="result-text">
           <h2 className="subtitle">UNDIAGNOSED</h2>
           <p className="description">
             Non siamo riusciti a classificarti in nessun Tier esistente.
           </p>
-          <ul>
+          <ul className="result-list">
             <li>Hard to manipulate</li>
             <li>No desire for status</li>
             <li>Refuses to stay connected</li>
@@ -36,9 +36,7 @@ const Undiagnosed = () => {
             <li>Too independent</li>
           </ul>
 
-          <button className="primary-btn" onClick={handleRestart}>
-            Rifai la diagnosi
-          </button>
+        
         </div>
       </div>
     </div>

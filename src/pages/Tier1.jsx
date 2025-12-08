@@ -15,10 +15,8 @@ const Tier1 = () => {
 
   return (
     <div className="screen screen-dark">
-      <div className="content">
         <div className="result-card tier-1">
           <div className="result-card-inner">
-            {/* FOTO DENTRO LA CARD */}
             <div className="result-photo-wrapper">
               {photo ? (
                 <img src={photo} alt="snapshot" className="result-photo" />
@@ -27,7 +25,6 @@ const Tier1 = () => {
               )}
             </div>
 
-            {/* TESTO */}
             <div className="result-text">
               <h2 className="subtitle">TIER 1</h2>
               <p className="description">
@@ -40,14 +37,10 @@ const Tier1 = () => {
                 <li>Takes extreme risks</li>
                 <li>Ruthless decision-making</li>
               </ul>
-
-            
             </div>
-          </div>
         </div>
       </div>
 
-      {/* decorazione in basso a destra */}
       <img src={logo} alt="logo tier 1" className="logo-bottom-right" />
     </div>
   );

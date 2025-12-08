@@ -16,8 +16,8 @@ const Tier3 = () => {
 
   return (
     <div className="screen screen-dark">
-      <div className="content result-layout">
-        <div className="result-photo-wrapper">
+      <div className="result-card">
+        <div className="result-card tier-3">
           {photo ? (
             <img src={photo} alt="snapshot" className="result-photo" />
           ) : (
@@ -25,12 +25,12 @@ const Tier3 = () => {
           )}
         </div>
 
-        <div className="result-info tier-3">
+        <div className="result-text">
           <h2 className="subtitle">TIER 3</h2>
           <p className="description">
             Based on the data that we gathered online <br/> you belong to: 
           </p>
-          <ul>
+          <ul className="result-list">
             <li>Low performance</li>
             <li>Unreliable output</li>
             <li>Slow to adapt</li>
@@ -39,7 +39,7 @@ const Tier3 = () => {
           </ul>
         </div>
       </div>
-      <img src={logo} alt="logo" className="logo-bottom-right" />
+      <img src={logo} alt="logo tier 3" className="logo-bottom-right" />
     </div>
   );
 };
