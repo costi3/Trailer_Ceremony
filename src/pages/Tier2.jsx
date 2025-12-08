@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDiagnosis } from "../components/DiagnosisContext";
+import logo from "../assets/tier2.png"; 
+
 
 const Tier2 = () => {
   const { photo, setPhoto, setTier } = useDiagnosis();
@@ -26,8 +28,7 @@ const Tier2 = () => {
         <div className="result-info tier-2">
           <h2 className="subtitle">TIER 2</h2>
           <p className="description">
-            Descrizione del profilo TIER 2.
-          </p>
+            Based on the data that we gathered online <br/> you belong to:</p>
           <ul>
             <li>Easily influenced</li>
             <li>Addicted to data</li>
@@ -36,11 +37,9 @@ const Tier2 = () => {
             <li>Follows orders blindly</li>
           </ul>
 
-          <button className="primary-btn" onClick={handleRestart}>
-            Rifai la diagnosi
-          </button>
         </div>
       </div>
+      <img src={logo} alt="logo" className="logo-bottom-right" />
     </div>
   );
 };

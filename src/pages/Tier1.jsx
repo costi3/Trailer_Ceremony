@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDiagnosis } from "../components/DiagnosisContext";
+import logo from "../assets/tier1.png";
 
 const Tier1 = () => {
   const { photo, setPhoto, setTier } = useDiagnosis();
@@ -14,37 +15,42 @@ const Tier1 = () => {
 
   return (
     <div className="screen screen-dark">
-      <div className="content result-layout">
-        <div className="result-photo-wrapper">
-          {photo ? (
-            <img src={photo} alt="snapshot" className="result-photo" />
-          ) : (
-            <div className="result-photo placeholder">Nessuna foto</div>
-          )}
-        </div>
+      <div className="content">
+        <div className="result-card tier-1">
+          <div className="result-card-inner">
+            {/* FOTO DENTRO LA CARD */}
+            <div className="result-photo-wrapper">
+              {photo ? (
+                <img src={photo} alt="snapshot" className="result-photo" />
+              ) : (
+                <div className="result-photo placeholder">Nessuna foto</div>
+              )}
+            </div>
 
-        <div className="result-info tier-1">
-          <h2 className="subtitle">TIER 1</h2>
-          <p className="description">
-            Descrizione del profilo TIER 1
-          </p>
-          <ul>
-            <li>Maximum efficiency</li>
-            <li>Obsessed with power</li>
-            <li>Zero empathy</li>
-            <li>Takes extreme risks</li>
-            <li>PRuthless decision-making</li>
-          </ul>
+            {/* TESTO */}
+            <div className="result-text">
+              <h2 className="subtitle">TIER 1</h2>
+              <p className="description">
+                Based on the data that we gathered online <br /> you belong to:
+              </p>
+              <ul className="result-list">
+                <li>Maximum efficiency</li>
+                <li>Obsessed with power</li>
+                <li>Zero empathy</li>
+                <li>Takes extreme risks</li>
+                <li>Ruthless decision-making</li>
+              </ul>
 
-          <button className="primary-btn" onClick={handleRestart}>
-            Rifai la diagnosi
-          </button>
+            
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* decorazione in basso a destra */}
+      <img src={logo} alt="logo tier 1" className="logo-bottom-right" />
     </div>
   );
 };
 
 export default Tier1;
-
-
