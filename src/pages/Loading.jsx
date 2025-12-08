@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useDiagnosis } from "../components/DiagnosisContext";
 import loadingVideo from "../assets/loading.mp4";
 
-const LoadingPage = () => {
+const Loading = () => {
   const { tier } = useDiagnosis();
   const navigate = useNavigate();
 
-  // se ricarichi la pagina senza tier, torna all'inizio
   useEffect(() => {
     if (!tier) navigate("/");
   }, [tier, navigate]);
@@ -20,23 +19,23 @@ const LoadingPage = () => {
   };
 
   return (
-    <div className="screen screen-dark">
-      <div className="content">
+    <div className="loading-container">
+      {/* Video in Background */}
+      <video
+        className="video-background"
+        src={loadingVideo}
+        autoPlay
+        muted // Importante per l'autoplay sui browser moderni
+        playsInline // Importante per mobile
+        onEnded={goToResult}
+      />
+
+      {/* Contenuto sopra il video */}
+      <div className="content-overlay">
         <h2 className="subtitle">Analizzando i dati...</h2>
-
-        <video
-          className="video-player"
-          src={loadingVideo}
-          autoPlay
-          onEnded={goToResult}
-        />
-
-        <button className="secondary-btn" onClick={goToResult}>
-          Salta loading
-        </button>
       </div>
     </div>
   );
 };
 
-export default LoadingPage;
+export default Loading;

@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { DiagnosisProvider } from "./components/DiagnosisContext";
 
 import Trailer from "./pages/Trailer";
-import StartDiagnosis from "./pages/StartDiagnosis";
 import CameraPage from "./pages/CameraPage";
 import Loading from "./pages/Loading";
 import Tier1 from "./pages/Tier1";
@@ -18,7 +17,6 @@ function App() {
       <div className="app-root">
         <Routes>
           <Route path="/" element={<Trailer />} />
-          <Route path="/start" element={<StartDiagnosis />} />
           <Route path="/camera" element={<CameraPage />} />
           <Route path="/loading" element={<Loading />} />
 
