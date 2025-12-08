@@ -1,54 +1,78 @@
-import { useRef, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useDiagnosis } from "../components/DiagnosisContext";
 
-export default function CameraPage(){
+const videoConstraints = {
+  width: 1280,
+  height: 720,
+  facingMode: "user",
+};
+
+const CameraPage = () => {
+  const { setPhoto, setTier } = useDiagnosis();
   const webcamRef = useRef(null);
-  const nav = useNavigate();
-  const location = useLocation();
-  const form = location.state?.form || null;
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(3);
+  const [error, setError] = useState(null);
 
-  const videoConstraints = {
-    facingMode: "user"
+  useEffect(() => {
+    if (countdown <= 0) {
+      handleCapture();
+      return;
+    }
+    const timer = setTimeout(() => {
+      setCountdown((c) => c - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countdown]);
+
+  const handleCapture = () => {
+    if (!webcamRef.current) return;
+
+    const imageSrc = webcamRef.current.getScreenshot();
+    if (imageSrc) {
+      setPhoto(imageSrc);
+
+      // random 1-4
+      const randomTier = Math.floor(Math.random() * 4) + 1;
+      setTier(randomTier);
+
+      navigate("/loading");
+    } else {
+      setError("Errore durante la cattura dell'immagine.");
+    }
   };
 
-  const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    // navigate to loading, pass photo + form
-    nav("/loading", { state: { photo: imageSrc, form } });
-  }, [nav, form]);
+  const handleUserMediaError = () => {
+    setError("Impossibile accedere alla fotocamera. Controlla i permessi.");
+  };
 
   return (
-    <div className="screen">
-      <div className="card">
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-          <div style={{textAlign:"left"}}>
-            <div className="title">Reveal your potential</div>
+    <div className="screen screen-dark">
+      <div className="content">
+        <h2 className="subtitle">Preparati…</h2>
+
+        <div className="camera-wrapper">
+          <Webcam
+            ref={webcamRef}
+            audio={false}
+            screenshotFormat="image/jpeg"
+            videoConstraints={videoConstraints}
+            onUserMediaError={handleUserMediaError}
+            className="camera-view"
+          />
+          <div className="countdown-overlay">
+            {countdown > 0 ? countdown : "Scatto…"}
           </div>
         </div>
 
-        <div className="webcam-area" aria-hidden>
-          <Webcam
-            audio={false}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            mirrored={false}
-            videoConstraints={videoConstraints}
-            style={{ width:"100%", height:"100%", objectFit:"cover" }}
-          />
-          <div className="face-oval" />
-        </div>
-
-        <div className="subtitle" style={{marginTop:0}}>Place your face inside the oval shape</div>
-
-        <div style={{textAlign:"center"}}>
-          <div className="capture-btn" onClick={capture} title="Scatta" />
-        </div>
-
+        {error && <p className="error-text">{error}</p>}
       </div>
-
-      <div  className="footer-small"  >Ministry of Mental Order</div>
-
     </div>
   );
-}
+};
+
+export default CameraPage;

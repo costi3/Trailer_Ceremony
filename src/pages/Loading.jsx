@@ -1,37 +1,42 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDiagnosis } from "../components/DiagnosisContext";
+import loadingVideo from "../assets/loading.mp4";
 
-export default function Loading() {
-  const loc = useLocation();
-  const nav = useNavigate();
-  const photo = loc.state?.photo;
-  const form = loc.state?.form;
+const LoadingPage = () => {
+  const { tier } = useDiagnosis();
+  const navigate = useNavigate();
 
+  // se ricarichi la pagina senza tier, torna all'inizio
   useEffect(() => {
-    const pages = ["/tier1", "/tier2", "/tier3", "/undiagnosed"];
+    if (!tier) navigate("/");
+  }, [tier, navigate]);
 
-    const pick = pages[Math.floor(Math.random() * pages.length)];
-
-    const timer = setTimeout(() => {
-      nav(pick, { state: { photo, form }});
-    }, 2400);
-
-    return () => clearTimeout(timer);
-  }, [nav, photo, form]);
+  const goToResult = () => {
+    if (tier === 1) navigate("/result/tier1");
+    else if (tier === 2) navigate("/result/tier2");
+    else if (tier === 3) navigate("/result/tier3");
+    else navigate("/result/undiagnosed");
+  };
 
   return (
-    <div className="screen">
-      <div>
-        <div className="loader" />
-        <div className="subtitle" style={{ marginTop: 8, fontSize: 14, textAlign: "center" }}>
-          Scanning the web
-        </div>
-        <div className="subtitle" style={{ marginTop: 8, fontSize: 14, textAlign: "center" }}>
-          for your <strong>Digital Footprint</strong>
-        </div>
-      </div>
+    <div className="screen screen-dark">
+      <div className="content">
+        <h2 className="subtitle">Analizzando i dati...</h2>
 
-      <div className="footer-small">Ministry of Mental Order</div>
+        <video
+          className="video-player"
+          src={loadingVideo}
+          autoPlay
+          onEnded={goToResult}
+        />
+
+        <button className="secondary-btn" onClick={goToResult}>
+          Salta loading
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default LoadingPage;

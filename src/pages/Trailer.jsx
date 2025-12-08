@@ -1,29 +1,27 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import myLogo from '../assets/logoMMH.png';
+import trailerVideo from "../assets/trailer.mp4";
 
-function Logo(){
+const Trailer = () => {
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate("/start");
+  };
+
   return (
-    <div className="logo" aria-hidden>
-      <img src={myLogo} alt="Logo MMH" style={{ width: '100px', height: 'auto' }} />
-    </div>
-  );
-}
-
-export default function Home(){
-  const nav = useNavigate();
-  return (
-    <div className="screen">
-      <div className="card">
-        <Logo />
-        <div className="subtitle" style={{fontSize: 17}}>
-         <strong>Pre-Ceremony Assesment</strong>
-          <div className="subtitle">Prepare for your upcoming  <br/><strong>Diagnostic Ceremony</strong>  <br/> and receive a Tier prediction</div>
-        </div>
-
-        <button className="btn-primary" onClick={() => nav("/form")}>Start your diagnosis</button>
+    <div className="screen screen-dark">
+      <div className="content">
+        <video
+          className="video-player"
+          src={trailerVideo}
+          autoPlay
+          controls
+          onEnded={handleContinue}
+        />
       </div>
-      <div  className="footer-small"  >Ministry of Mental Order</div>
-
     </div>
   );
-}
+};
+
+export default Trailer;
