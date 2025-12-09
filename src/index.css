@@ -138,8 +138,7 @@ body {
 }
 
 .camera-view {
-  width: 640px;
-  height: 360px;
+  width: 60vw;
   border-radius: 16px;
   background: black;
   transform: scaleX(-1);  /* flip orizzontale */
