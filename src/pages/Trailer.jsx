@@ -6,7 +6,7 @@ const Trailer = () => {
   const navigate = useNavigate();
 
   const goToCamera = () => {
-    navigate("/camera"); // cambia qui se la route è diversa
+    navigate("/loading"); // cambia qui se la route è diversa
   };
 
   useEffect(() => {

@@ -161,13 +161,15 @@ body {
 .result-card {
   position: relative;
   width: 100%;
-  max-width: 1100px; /*prima era 700px, con queste dim funziona sulla tv*/
+  max-width: 700px;
+  /*max-width: 1100px; /*prima era 700px, con queste dim funziona sulla tv*/
   margin: 0 auto;
   border-radius: 32px;
   padding: 32px 40px;
   overflow: hidden;
   color: #111;
-  height: 70vh; /* altezza uniforme per tutte le tier -> ad hoc x la tv */
+  /*height: 70vh; /* altezza uniforme per tutte le tier -> ad hoc x la tv */
+  height: 50vh;
 }
 
 /* layout interno foto + testo */
@@ -184,11 +186,11 @@ body {
 /* Foto */
 .result-photo-wrapper {
   border-radius: 24px;
-  /*padding: 16px;*/
-  padding: 19px; /*per la tv*/
+  padding: 16px;
+  /*padding: 19px; /*per la tv*/
   /*height: 100%;  stessa altezza della colonna -> per la tv */
-  display: flex; /*per la tv*/
-  align-items: center;/*per la tv*/
+  /*display: flex; /*per la tv*/
+  /*align-items: center;/*per la tv*/
 }
 
 .result-photo {
@@ -215,8 +217,8 @@ body {
   height: 100%;               /* stessa altezza della foto */
   display: flex;
   flex-direction: column;
-  /*justify-content: space-between; */
-  justify-content: center; /*per la tv*/
+  justify-content: space-between; 
+  /*justify-content: center; per la tv*/
 
 }
 
@@ -239,7 +241,7 @@ body {
   border: 2px solid var(--gold);
   box-shadow: 0 0 50px white;
   background: url("./assets/ID1.png") center/cover no-repeat;
-  font-size: 28px; /*per la tv*/
+  /*font-size: 28px; /*per la tv*/
 
 }
 
@@ -247,7 +249,7 @@ body {
   border: 2px solid var(--green);
   box-shadow: 0 0 50px white;
   background: url("./assets/ID2.png") center/cover no-repeat;
-    font-size: 28px; /*per la tv*/
+    /*font-size: 28px; /*per la tv*/
 
 }
 
@@ -256,7 +258,7 @@ body {
   box-shadow: 0 0 50px white;
   background: url("./assets/ID3.png") center/cover no-repeat;
 
-  font-size: 28px; /*per la tv*/
+  /*font-size: 28px; /*per la tv*/
 
 }
 
@@ -265,32 +267,32 @@ body {
   box-shadow: 0 0 50px white;
   background: url("./assets/IDU.png") center/cover no-repeat;
 
-  font-size: 28px; /*per la tv*/
+  /*font-size: 28px; /*per la tv*/
 }
 
 /* nome tier e lista  */
 
 .result-card.tier-1 .subtitle {
   color: var(--gold);
-    font-size: 40px; /*per la tv*/
+    /*font-size: 40px; /*per la tv*/
 
 }
 
 .result-card.tier-2 .subtitle {
   color: var(--green);
-    font-size: 40px; /*per la tv*/
+   /* font-size: 40px; /*per la tv*/
 
 }
 
 .result-card.tier-3 .subtitle {
   color: var(--blue);
-    font-size: 40px; /*per la tv*/
+    /*font-size: 40px; /*per la tv*/
 
 }
 
 .result-card.tier-4 .subtitle {
   color: var(--gray);
-  font-size: 40px; /*per la tv*/
+  /*font-size: 40px; /*per la tv*/
 }
 
 /* Colore dei pallini (marker) della lista */

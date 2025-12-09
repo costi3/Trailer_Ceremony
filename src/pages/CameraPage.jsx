@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { useDiagnosis } from "../components/DiagnosisContext";
+import videoLoad from "../assets/loading.mp4"
 
 const CameraPage = () => {
   const { setPhoto, setTier } = useDiagnosis();
