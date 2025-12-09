@@ -2,6 +2,7 @@
   "name": "timecapsule-app",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://costi3.github.io/Trailer_Ceremony", 
   "type": "module",
   "scripts": {
     "dev": "vite",
