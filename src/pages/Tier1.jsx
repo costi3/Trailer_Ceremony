@@ -45,8 +45,6 @@ const Tier1 = () => {
             </div>
         </div>
       </div>
-
-      <img src={logo} alt="logo tier 1" className="logo-bottom-right" />
     </div>
   );
 };
