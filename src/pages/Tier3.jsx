@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDiagnosis } from "../components/DiagnosisContext";
-import logo from "../assets/tier3.png"; 
-
+import logo from "../assets/tier3.png";
 
 const Tier3 = () => {
   const { photo, setPhoto, setTier } = useDiagnosis();
@@ -16,30 +15,36 @@ const Tier3 = () => {
 
   return (
     <div className="screen screen-dark">
-      <div className="result-card">
-        <div className="result-card tier-3">
-          {photo ? (
-            <img src={photo} alt="snapshot" className="result-photo" />
-          ) : (
-            <div className="result-photo placeholder">Nessuna foto</div>
-          )}
-        </div>
+      <div className="result-card tier-3">   
+        <div className="result-card-inner">
+          <div className="result-photo-wrapper">
+            <img src={photo} className="result-photo" />
+          </div>
 
-        <div className="result-text">
-          <h2 className="subtitle">TIER 3</h2>
-          <p className="description">
-            Based on the data that we gathered online <br/> you belong to: 
-          </p>
-          <ul className="result-list">
-            <li>Low performance</li>
-            <li>Unreliable output</li>
-            <li>Slow to adapt</li>
-            <li>Often disconnected</li>
-            <li>Limited utility</li>
-          </ul>
+          <div className="result-text">
+            <p className="tier3-lead">
+              Based on the data that we gathered online<br />
+              you belong to
+            </p>
+
+            <div style={{display: "flex",flexDirection: "column",alignItems: "center",alignSelf: "center",gap: "8px",}}>
+              <img src={logo}style={{width: "40%"}}/>
+              <h2 className="subtitle" style={{textAlign: "center",margin: 0}}>
+                TIER 3
+              </h2>
+            </div>
+            
+            <ul className="result-list">
+              <li>Low performance</li>
+              <li>Unreliable output</li>
+              <li>Slow to adapt</li>
+              <li>Often disconnected</li>
+              <li>Limited utility</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <img src={logo} alt="logo tier 3" className="logo-bottom-right" />
+
     </div>
   );
 };

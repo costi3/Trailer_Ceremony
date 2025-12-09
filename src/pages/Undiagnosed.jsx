@@ -13,30 +13,33 @@ const Undiagnosed = () => {
   };
 
   return (
-    <div className="screen screen-dark">
-      <div className="result-card">
-        <div className="result-card tier-4">
-          {photo ? (
-            <img src={photo} alt="snapshot" className="result-photo" />
-          ) : (
-            <div className="result-photo placeholder">Nessuna foto</div>
-          )}
-        </div>
-
-        <div className="result-text">
-          <h2 className="subtitle">UNDIAGNOSED</h2>
-          <p className="description">
-            Non siamo riusciti a classificarti in nessun Tier esistente.
-          </p>
-          <ul className="result-list">
-            <li>Hard to manipulate</li>
-            <li>No desire for status</li>
-            <li>Refuses to stay connected</li>
-            <li>Hides personal data</li>
-            <li>Too independent</li>
-          </ul>
-
-        
+     <div className="screen screen-dark">
+          <div className="result-card tier-4">   
+            <div className="result-card-inner">
+              <div className="result-photo-wrapper">
+                <img src={photo} className="result-photo" />
+              </div>
+    
+              <div className="result-text">
+                <p className="tier4-lead">
+                  Based on the data that we gathered online<br />
+                  you belong to
+                </p>
+    
+                <div style={{display: "flex",flexDirection: "column",alignItems: "center",alignSelf: "center",gap: "8px",}}>
+                  <h2 className="subtitle" style={{textAlign: "center",margin: 0}}>
+                    UNDIAGNOSED
+                  </h2>
+                </div>
+                
+                <ul className="result-list">
+                  <li>Hard to manipulate</li>
+                  <li>No desire for status</li>
+                  <li>Refuses to stay connected</li>
+                  <li>Hides personal data</li>
+                  <li>Too independent</li>
+                </ul>
+          </div>
         </div>
       </div>
     </div>

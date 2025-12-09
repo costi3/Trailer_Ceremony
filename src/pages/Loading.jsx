@@ -25,15 +25,10 @@ const Loading = () => {
         className="video-background"
         src={loadingVideo}
         autoPlay
-        muted // Importante per l'autoplay sui browser moderni
-        playsInline // Importante per mobile
+        muted 
+        playsInline 
         onEnded={goToResult}
       />
-
-      {/* Contenuto sopra il video */}
-      <div className="content-overlay">
-        <h2 className="subtitle">Analizzando i dati...</h2>
-      </div>
     </div>
   );
 };

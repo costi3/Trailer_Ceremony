@@ -98,7 +98,7 @@ const CameraPage = () => {
   return (
     <div className="screen screen-dark">
       <div className="content">
-        <h2 className="subtitle">Ready</h2>
+        <h2 className="subtitle">Get ready...</h2>
 
         <div className="camera-wrapper">
           <video
@@ -109,7 +109,7 @@ const CameraPage = () => {
             playsInline
           />
           <div className="countdown-overlay">
-            {countdown > 0 ? countdown : "Scatto…"}
+            {countdown > 0 ? countdown : ""}
           </div>
         </div>
 
