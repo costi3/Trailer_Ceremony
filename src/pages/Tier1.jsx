@@ -9,8 +9,6 @@ const Tier1 = () => {
   const navigate = useNavigate();
 
   const goToTrailer = () => {
-    setPhoto(null);
-    setTier(null);
     navigate("/"); // Trailer
   };
 
