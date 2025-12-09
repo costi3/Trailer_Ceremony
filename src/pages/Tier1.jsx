@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDiagnosis } from "../components/DiagnosisContext";
 import logo from "../assets/tier1.png";
@@ -8,11 +8,32 @@ const Tier1 = () => {
   const { photo, setPhoto, setTier } = useDiagnosis();
   const navigate = useNavigate();
 
-  const handleRestart = () => {
+  const goToTrailer = () => {
     setPhoto(null);
     setTier(null);
-    navigate("/");
+    navigate("/"); // Trailer
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key ? event.key.toLowerCase() : "";
+
+      const isEscape = key === "escape";
+      const isR = key === "r";
+      const isCmdR = isR && event.metaKey;  // ⌘ + R (Mac)
+      const isCtrlR = isR && event.ctrlKey; // Ctrl + R (Win)
+
+      if (isEscape || isCmdR || isCtrlR) {
+        if (isCmdR || isCtrlR) {
+          event.preventDefault(); // prova a bloccare reload del browser
+        }
+        goToTrailer();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [goToTrailer, navigate, setPhoto, setTier]);
 
   return (
      <div className="screen screen-dark">
