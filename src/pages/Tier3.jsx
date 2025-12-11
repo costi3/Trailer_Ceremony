@@ -6,6 +6,11 @@ import logo from "../assets/tier3.png";
 const Tier3 = () => {
   const { photo, setPhoto, setTier } = useDiagnosis();
   const navigate = useNavigate();
+  const goToLoading = () => {
+    setPhoto(null);
+    setTier(null);
+    navigate("/loading"); 
+  };
 
   const goToTrailer = () => {
       navigate("/"); // Trailer
@@ -34,6 +39,43 @@ const Tier3 = () => {
 
   return (
     <div className="screen screen-dark">
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "700px",
+          margin: "0 auto 16px",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <button
+          onClick={goToLoading}
+          onFocus={(e) => e.currentTarget.blur()} 
+          style={{
+          position: "fixed",
+          top: "24px",
+          right: "32px",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px",
+          background: "transparent",
+          border: "none",
+          borderRadius: "999px",
+          padding: "8px 16px",
+          color: "#7f7f7f",
+          fontFamily: "Gotham, system-ui, sans-serif",
+          fontSize: "14px",
+          cursor: "pointer",
+          zIndex: 10,
+          outline: "none",
+          boxShadow: "none",
+        }}
+        >
+          <span style={{ fontSize: "18px", lineHeight: 1 }}>↻</span>
+          {/*<span>Take the Test again</span>*/}
+        </button>
+      </div>
+
       <div className="result-card tier-3">   
         <div className="result-card-inner">
           <div className="result-photo-wrapper">
