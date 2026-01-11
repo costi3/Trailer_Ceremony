@@ -74,8 +74,8 @@ const Tier1 = () => {
           boxShadow: "none",
         }}
         >
-          <span style={{ fontSize: "20px", lineHeight: 1 }}>↻</span>
-          <span style={{ fontSize: "20px", lineHeight: 1 }}>Take the Test again</span>
+          <span style={{ /*fontSize: "20px"*/ fontSize: "14px", lineHeight: 1 }}>↻</span>
+          <span style={{ /*fontSize: "20px"*/ fontSize: "14px", lineHeight: 1 }}>Take the Test again</span>
         </button>
       </div>
 

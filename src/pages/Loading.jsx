@@ -16,7 +16,6 @@ const Loading = () => {
   const [error, setError] = useState(null);
   const [hasCaptured, setHasCaptured] = useState(false);
 
-  // Avvia la CAMERA
   useEffect(() => {
     const startCamera = async () => {
       try {
@@ -47,7 +46,7 @@ const Loading = () => {
     };
   }, []);
 
-  // Countdown 3 → 0, poi scatta UNA volta
+  // Countdown 3 → 0, poi scatta volta
   useEffect(() => {
     if (hasCaptured) return;
 
@@ -135,6 +134,18 @@ const Loading = () => {
 
       {/* Overlay centrale con la camera */}
       <div className="content-overlay">
+        <h2
+          className="subtitle"
+          style={{
+            marginBottom: "24px",
+            textAlign: "center",
+            textTransform: "uppercase",
+            letterSpacing: "2px",
+          }}
+        >
+          Scanning your data...
+        </h2>
+        
         <div className="camera-wrapper">
           <video
             ref={videoRef}

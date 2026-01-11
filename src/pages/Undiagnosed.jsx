@@ -71,8 +71,8 @@ const Undiagnosed = () => {
           boxShadow: "none",
         }}
         >
-          <span style={{ fontSize: "20px", lineHeight: 1 }}>↻</span>
-          <span style={{ fontSize: "20px", lineHeight: 1 }}>Take the Test again</span>
+          <span style={{ /*fontSize: "20px"*/ fontSize: "14px", lineHeight: 1 }}>↻</span>
+          <span style={{ /*fontSize: "20px"*/ fontSize: "14px", lineHeight: 1 }}>Take the Test again</span>
         </button>
       </div>
           <div className="result-card tier-4">   
@@ -81,7 +81,7 @@ const Undiagnosed = () => {
                 <img src={photo} className="result-photo" />
               </div>
     
-              <div className="result-text" style={{justifyContent:"space-around"}}>
+              <div className="result-text" style={{justifyContent:"space-around", marginTop:"24px"}}>
                 
     
                 <div style={{
@@ -92,17 +92,13 @@ const Undiagnosed = () => {
                       gap: "8px",
                     }}
                   >
-                    <p className="tier4-lead" style={{ margin: 0 }}>
-                      Status:
-                    </p>
-                    <h2 className="subtitle" style={{ margin: 0 }}>
-                      UNDIAGNOSED
-                    </h2>
+                    <p className="tier4-lead">Status:</p>
+                    <h2 className="subtitle">UNDIAGNOSED</h2>
                   </div>
 
 
-                <p className="tier4-lead"> Access to Tiered Zones and services is temporarily <strong>suspended</strong>.</p>
-                <p className="tier4-lead"> Please <strong>report immediately</strong> to the department of Undiagnosed Citizens for further evaluation.</p>
+                <p className="tier4-lead"> Access to Tiered Zones and services is temporarily <strong>SUSPENDED</strong>.</p>
+                <p className="tier4-lead"> Please <strong>REPORT IMMEDIATELY</strong> to the department of Undiagnosed Citizens for further evaluation.</p>
                 <p className="tier4-lead" style={{fontStyle: "italic", color: "red"}}> Resistance is punishable!</p>
           </div>
         </div>
